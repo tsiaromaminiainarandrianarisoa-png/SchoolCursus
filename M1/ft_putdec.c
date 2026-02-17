@@ -1,22 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_putdec.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tsiarran <tsiarran@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/14 09:21:19 by tsiarran          #+#    #+#             */
-/*   Updated: 2026/02/14 09:28:19 by tsiarran         ###   ########.fr       */
+/*   Created: 2026/02/14 09:34:33 by tsiarran          #+#    #+#             */
+/*   Updated: 2026/02/17 10:04:37 by tsiarran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
-int ft_putstr(va_list args)
+int	ft_putdec(va_list args)
 {
-	char *str;
+	int		nbr;
+	char	*tmp;
+	int		len;
 
-	str = va_arg(args, char *);
-	ft_putstr_fd(str, 1);
-	return (((int)(ft_strlen(str))));
+	nbr = va_arg(args, int);
+	ft_putnbr_fd(nbr, 1);
+	tmp = ft_itoa(nbr);
+	len = (int)ft_strlen(tmp);
+	free(tmp);
+	return (len);
 }

@@ -1,24 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putint.c                                        :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tsiarran <tsiarran@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/14 09:46:37 by tsiarran          #+#    #+#             */
-/*   Updated: 2026/02/14 09:50:11 by tsiarran         ###   ########.fr       */
+/*   Created: 2026/02/02 21:15:15 by tsiarran          #+#    #+#             */
+/*   Updated: 2026/02/17 10:05:19 by tsiarran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
-int	ft_putint(va_list args)
+void	ft_putstr_fd(char *s, int fd)
 {
-	int		nbr;
-	char	nb;
+	int	loc;
 
-	nbr = va_arg(args, int);
-	ft_putnbr_fd(nbr, 1);
-	nb = ft_itoa(nbr);
-	return (ft_strlen(nb));
+	loc = 0;
+	if (!s)
+		return ;
+	while (s[loc])
+	{
+		ft_putchar_fd(s[loc++], fd);
+	}
 }

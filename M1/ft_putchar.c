@@ -1,19 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftprintf.h                                      :+:      :+:    :+:   */
+/*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tsiarran <tsiarran@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/13 19:17:46 by tsiarran          #+#    #+#             */
-/*   Updated: 2026/02/14 07:53:27 by tsiarran         ###   ########.fr       */
+/*   Created: 2026/02/13 23:35:35 by tsiarran          #+#    #+#             */
+/*   Updated: 2026/02/17 10:04:29 by tsiarran         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFTPRINTF_H
-# define LIBFTPRINTF_H
-# include "../../M0/libft/libft.h"
+#include "ft_printf.h"
 
-int	ft_printf(const char *s, ...);
+int	ft_putchar(va_list args)
+{
+	char	c;
 
-#endif
+	c = (char)va_arg(args, int);
+	ft_putchar_fd(c, 1);
+	return (1);
+}
